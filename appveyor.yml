@@ -1,7 +1,7 @@
 version: '{build}'
-clone_folder: c:\projects\udm_standalone
+clone_folder: /home/appveyor/projects/udm_standalone
 image:
-- Visual Studio 2019
+- Ubuntu
 configuration:
 - RelWithDebInfo
 
@@ -12,24 +12,19 @@ install:
   - cd %APPVEYOR_BUILD_FOLDER%
   - git submodule update --init --recursive
 
-init:
-- set arch=
-- if "%arch%"=="Win64" ( set arch= Win64)
-- echo %arch%
-- echo %APPVEYOR_BUILD_WORKER_IMAGE%
-- if "%APPVEYOR_BUILD_WORKER_IMAGE%"=="Visual Studio 2019" ( set generator="Visual Studio 16 2019%arch%" )
-- echo %generator%
+platform:
+  - x64
 
 before_build:
 # build sharedutils
 - cmd: |-
-    cd c:\projects\udm_standalone
+    cd /home/appveyor/projects/udm_standalone
     mkdir build
     cd build
     cmake .. -G %generator%
     msbuild c:\projects\udm_standalone\build\udm_standalone.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 build:
-  project: build\udm_standalone.sln
+  project: /home/appveyor/projects/udm_standalone.sln
   verbosity: normal
   parallel: true
