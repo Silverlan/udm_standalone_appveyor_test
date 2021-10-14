@@ -9,7 +9,7 @@ matrix:
   fast_finish: true
 
 install:
-  - cd %APPVEYOR_BUILD_FOLDER%
+  - cd /home/appveyor/projects/udm_standalone
   - git submodule update --init --recursive
 
 platform:
