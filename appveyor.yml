@@ -24,7 +24,7 @@ before_build:
     mkdir build
     ls
     cd build
-    cmake .. -G "Unix Makefiles"
+    cmake ..
 
 build_script:
   make
