@@ -178,5 +178,6 @@ endforeach(INCLUDE_PATH)
 set(TARGET_PROPERTIES LINKER_LANGUAGE CXX)
 set_target_properties(${PROJ_NAME} PROPERTIES ${TARGET_PROPERTIES})
 
-add_dependencies(util_udm mathutil vfilesystem sharedutils-static lz4)
+add_dependencies(mathutil sharedutils-static)
+add_dependencies(util_udm mathutil vfilesystem lz4)
 add_dependencies(${PROJ_NAME} util_udm)
