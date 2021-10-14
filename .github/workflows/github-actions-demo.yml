@@ -30,7 +30,6 @@ jobs:
         run: |
           mkdir build
           mkdir instdir
-          cd D:/a/udm_standalone_appveyor_test/udm_standalone_appveyor_test
           cmake \
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
             -G "${{ matrix.config.generators }}" \
