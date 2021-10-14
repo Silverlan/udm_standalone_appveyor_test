@@ -36,4 +36,4 @@ jobs:
             -DCMAKE_INSTALL_PREFIX:PATH=instdir
       - name: Build
         shell: bash
-        run: cmake --build . --config ${{ matrix.config.build_type }}
+        run: cmake --build /home/runner/work/udm_standalone_appveyor_test/udm_standalone_appveyor_test --config ${{ matrix.config.build_type }}
