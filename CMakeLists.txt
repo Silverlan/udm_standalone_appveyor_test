@@ -86,8 +86,6 @@ project(${PROJ_NAME} CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(ENABLE_STATIC_LIBRARY_FLAG 0)
 
-set(CMAKE_C_COMPILE_OBJECT "gcc -o -c ")
-
 add_definitions(-DSHUTIL_STATIC)
 add_definitions(-DMUTIL_STATIC)
 add_definitions(-DVFILESYSTEM_STATIC)
