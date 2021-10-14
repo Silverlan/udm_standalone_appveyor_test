@@ -1,2 +1,2 @@
-# udm_standalone_appveyor_test
-Ignore me
+# udm_standalone
+Standalone version of the UDM data library (https://github.com/Silverlan/util_udm)

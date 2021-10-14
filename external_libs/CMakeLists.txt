@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.12)
+
+add_subdirectory(mathutil)
+add_subdirectory(sharedutils-static)
+add_subdirectory(util_udm)
+add_subdirectory(vfilesystem)
+set_target_properties(mathutil PROPERTIES FOLDER external_libs)
+set_target_properties(sharedutils-static PROPERTIES FOLDER external_libs)
+set_target_properties(util_udm PROPERTIES FOLDER external_libs)
+set_target_properties(vfilesystem PROPERTIES FOLDER external_libs)
