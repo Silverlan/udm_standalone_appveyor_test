@@ -15,9 +15,15 @@ install:
 platform:
   - x64
 
+environment:
+  APPVEYOR_YML_DISABLE_PS_LINUX: true
+
+install:
+  - ps: .\install-dependency.ps1
+  - sh: ./install-dependency.sh
+
 before_build:
-# build sharedutils
-- cmd: |-
+- sh: |-
     cd /home/appveyor/projects/udm_standalone
     mkdir build
     ls
