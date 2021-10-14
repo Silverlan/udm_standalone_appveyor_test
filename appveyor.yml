@@ -24,7 +24,7 @@ before_build:
     mkdir build
     ls
     cd build
-    cmake -DCMAKE_BUILD_TYPE=%CONFIGURATION% .. -G "Unix Makefiles"
+    cmake .. -G "Unix Makefiles"
 
 build_script:
   make
