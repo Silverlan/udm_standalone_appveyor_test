@@ -16,7 +16,7 @@ jobs:
             cc: "gcc",
             cxx: "g++",
             archiver: "7z a",
-            generators: "Make"
+            generators: "Unix Makefiles"
           }
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
