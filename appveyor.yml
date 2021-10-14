@@ -20,11 +20,9 @@ before_build:
 - cmd: |-
     cd /home/appveyor/projects/udm_standalone
     mkdir build
+    ls
     cd build
-    cmake .. -G %generator%
-    msbuild c:\projects\udm_standalone\build\udm_standalone.sln /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    cmake -DCMAKE_BUILD_TYPE=%CONFIGURATION% .. -G %generator%
 
-build:
-  project: /home/appveyor/projects/udm_standalone.sln
-  verbosity: normal
-  parallel: true
+build_script:
+  make
