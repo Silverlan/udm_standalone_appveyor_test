@@ -3,8 +3,7 @@ clone_folder: c:\projects\udm_standalone
 image:
 - Visual Studio 2019
 configuration:
-- Release
-- Debug
+- RelWithDebInfo
 
 matrix:
   fast_finish: true
