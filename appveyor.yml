@@ -9,6 +9,8 @@ matrix:
   fast_finish: true
 
 install:
+  - ps: .\install-dependency.ps1
+  - sh: ./install-dependency.sh
   - cd /home/appveyor/projects/udm_standalone
   - git submodule update --init --recursive
 
@@ -17,10 +19,6 @@ platform:
 
 environment:
   APPVEYOR_YML_DISABLE_PS_LINUX: true
-
-install:
-  - ps: .\install-dependency.ps1
-  - sh: ./install-dependency.sh
 
 before_build:
 - sh: |-
