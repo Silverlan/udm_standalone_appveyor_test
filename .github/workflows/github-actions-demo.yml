@@ -1,9 +1,48 @@
-name: GitHub Actions Demo
+name: Build
 on: [push]
 jobs:
-  build:
-    name: build-windows-x64
-    runs-on: ubuntu-latest
+  build-windows:
+    name: Build-Windows-x64
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - {
+            name: "Windows x64 MSVC",
+            os: windows-latest,
+            artifact: "Windows-MSVC.tar.xz",
+            build_type: "RelWithDebInfo",
+            environment_script: "C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat",
+            cc: "cl",
+            cxx: "cl",
+            archiver: "7z a",
+            generators: "Visual Studio 16 2019"
+          }
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Download submodules
+        run: |
+          git submodule update --init --recursive
+      - name: CMake
+        shell: bash
+        run: |
+          mkdir build
+          mkdir instdir
+          cmake \
+            -S . \
+            -B . \
+            -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
+            -G "${{ matrix.config.generators }}" \
+            -DCMAKE_INSTALL_PREFIX:PATH=instdir
+      - name: Build
+        shell: bash
+        run: cmake --build ./ --config ${{ matrix.config.build_type }}
+  build-ubuntu:
+    name: Build-Ubuntu-x64
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
