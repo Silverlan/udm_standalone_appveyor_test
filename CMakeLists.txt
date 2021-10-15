@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
+set( CMAKE_VERBOSE_MAKEFILE on )
+
 set(INCLUDE_DIRS)
 function(add_include_dir IDENTIFIER DEFAULT_INCLUDE_DIR)
 	set(PRETTYNAME ${IDENTIFIER})
