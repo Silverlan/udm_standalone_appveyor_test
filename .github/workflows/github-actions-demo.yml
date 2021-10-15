@@ -42,7 +42,7 @@ jobs:
         run: cmake --build ./ --config ${{ matrix.config.build_type }}
   build-ubuntu:
     name: Build-Ubuntu-x64
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.config.os }}
     strategy:
       fail-fast: false
       matrix:
