@@ -35,6 +35,9 @@ jobs:
           git submodule update --init --recursive
       - name: Configure
         shell: bash
+        env:
+         CC:   gcc-11
+         CXX:  g++-11
         run: |
           mkdir build
           mkdir instdir
