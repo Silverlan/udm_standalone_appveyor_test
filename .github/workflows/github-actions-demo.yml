@@ -9,7 +9,7 @@ jobs:
       matrix:
         config:
         - {
-            name: "Ubuntu_Latest_GCC",
+            name: "Ubuntu GCC-11",
             os: ubuntu-latest,
             artifact: "ubuntu_gcc.7z",
             build_type: "RelWithDebInfo",
@@ -26,14 +26,10 @@ jobs:
         run: |
           sudo apt update
           sudo apt install gcc-11 g++-11
-      - name: Print env
+      - name: Download submodules
         run: |
-          dpkg --list | grep compiler
-          ls -l /usr/bin/c++
-          ls -l /etc/alternatives/c++
-          /usr/bin/c++ -v
           git submodule update --init --recursive
-      - name: Configure
+      - name: CMake
         shell: bash
         env:
          CC:   gcc-11
@@ -46,8 +42,6 @@ jobs:
             -G "${{ matrix.config.generators }}" \
             -DCMAKE_INSTALL_PREFIX:PATH=instdir \
             ./
-            # ./third_party_libs/bzip2/
-            # ./third_party_libs/lz4-cmake/
       - name: Build
         shell: bash
         run: cmake --build ./ --config ${{ matrix.config.build_type }}
