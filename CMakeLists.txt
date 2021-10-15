@@ -168,12 +168,12 @@ def_vs_filters("${SRC_FILES}")
 # 	target_link_libraries(${PROJ_NAME} ${${LIB}})
 # endforeach(LIB)
 
-target_include_directories(${PROJ_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/include)
-target_include_directories(${PROJ_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
+# target_include_directories(${PROJ_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/include)
+# target_include_directories(${PROJ_NAME} PRIVATE ${CMAKE_CURRENT_LIST_DIR}/src)
 
-foreach(INCLUDE_PATH IN LISTS INCLUDE_DIRS)
-	target_include_directories(${PROJ_NAME} PRIVATE ${${INCLUDE_PATH}})
-endforeach(INCLUDE_PATH)
+# foreach(INCLUDE_PATH IN LISTS INCLUDE_DIRS)
+# 	target_include_directories(${PROJ_NAME} PRIVATE ${${INCLUDE_PATH}})
+# endforeach(INCLUDE_PATH)
 
 set(TARGET_PROPERTIES LINKER_LANGUAGE CXX)
 # set_target_properties(${PROJ_NAME} PROPERTIES ${TARGET_PROPERTIES})
