@@ -13,8 +13,8 @@ jobs:
             os: ubuntu-latest,
             artifact: "ubuntu_gcc.7z",
             build_type: "RelWithDebInfo",
-            cc: "gcc",
-            cxx: "g++",
+            cc: "gcc-11",
+            cxx: "g++-11",
             archiver: "7z a",
             generators: "Unix Makefiles"
           }
@@ -22,6 +22,9 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: Install GCC-11
+        sudo apt update
+        sudo apt install gcc-11 g++-11
       - name: Print env
         run: |
           dpkg --list | grep compiler
