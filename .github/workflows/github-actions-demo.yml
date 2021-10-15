@@ -24,6 +24,9 @@ jobs:
 
       - name: Print env
         run: |
+          ls -l /usr/bin/c++
+          ls -l /etc/alternatives/c++
+          /usr/bin/c++ -v
           git submodule update --init --recursive
       - name: Configure
         shell: bash
