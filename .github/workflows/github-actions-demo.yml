@@ -34,8 +34,9 @@ jobs:
             -DCMAKE_BUILD_TYPE=${{ matrix.config.build_type }} \
             -G "${{ matrix.config.generators }}" \
             -DCMAKE_INSTALL_PREFIX:PATH=instdir \
-            ./third_party_libs/bzip2/
-          # ./third_party_libs/lz4-cmake/
+            ./
+            # ./third_party_libs/bzip2/
+            # ./third_party_libs/lz4-cmake/
       - name: Build
         shell: bash
         run: cmake --build ./ --config ${{ matrix.config.build_type }}
