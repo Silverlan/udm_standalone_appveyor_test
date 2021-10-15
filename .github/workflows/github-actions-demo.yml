@@ -24,6 +24,7 @@ jobs:
 
       - name: Print env
         run: |
+          dpkg --list | grep compiler
           ls -l /usr/bin/c++
           ls -l /etc/alternatives/c++
           /usr/bin/c++ -v
