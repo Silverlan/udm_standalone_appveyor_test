@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(lz4)
+project(lz4 C)
 
 include_directories(../lz4/lib)
 
